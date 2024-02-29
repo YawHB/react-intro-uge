@@ -5,6 +5,7 @@ import Profile from './components/Profile';
 // import ListDemo from './exercises/ListDemo';
 import { users } from './data/data';
 import ListDemo from './exercises/ListDemo';
+import EventDemo from './exercises/EventDemo';
 
 export default function App() {
     const [selectedView, setSelectedView] = useState('info');
@@ -50,7 +51,11 @@ export default function App() {
                                 <ListDemo title="User List"></ListDemo>
                             </>
                         ) : null}
-                        {selectedView}
+                        {selectedView == 'Events' ? (
+                            <>
+                                <EventDemo title={'Events'}></EventDemo>
+                            </>
+                        ) : null}
                     </div>
 
                     {/**Add the exercise components you creskal ate for each exercise using the key you used for the matching button  */}
@@ -84,6 +89,9 @@ const Buttons = ({ onSelected, btnStyle }: ButtonProps) => {
                 onClick={() => onSelected('List demo')}
             >
                 List demo
+            </button>
+            <button className="btn-w100" onClick={() => onSelected('Events')}>
+                Events
             </button>
         </>
     );
