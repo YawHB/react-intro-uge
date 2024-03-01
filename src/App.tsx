@@ -9,6 +9,7 @@ import EventDemo from './exercises/EventDemo';
 import UserForm from './components/UserForm';
 import FormUncontrolled from './exercises/FormUncontrolled';
 import StateDemo1 from './exercises/StateDemo1';
+import StateDemo2 from './exercises/StateDemo2';
 
 export default function App() {
     const [selectedView, setSelectedView] = useState('info');
@@ -58,6 +59,11 @@ export default function App() {
                                 <StateDemo1 title={'State demo1'}></StateDemo1>
                             </>
                         ) : null}
+                        {selectedView == 'State demo2' ? (
+                            <>
+                                <StateDemo2 title={'State demo2'}></StateDemo2>
+                            </>
+                        ) : null}
                     </div>
 
                     {/**Add the exercise components you creskal ate for each exercise using the key you used for the matching button  */}
@@ -94,6 +100,9 @@ const Buttons = ({ onSelected, btnStyle }: ButtonProps) => {
             </button>
             <button className="btn-w100" onClick={() => onSelected('State demo1')}>
                 State demo1
+            </button>
+            <button className="btn-w100" onClick={() => onSelected('State demo2')}>
+                State demo2
             </button>
         </>
     );
