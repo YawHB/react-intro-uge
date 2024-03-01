@@ -8,6 +8,7 @@ import ListDemo from './exercises/ListDemo';
 import EventDemo from './exercises/EventDemo';
 import UserForm from './components/UserForm';
 import FormUncontrolled from './exercises/FormUncontrolled';
+import StateDemo1 from './exercises/StateDemo1';
 
 export default function App() {
     const [selectedView, setSelectedView] = useState('info');
@@ -27,24 +28,13 @@ export default function App() {
                         <Buttons onSelected={handleSelected} />
                     </div>
                     <div className="exercise-style">
-                        {selectedView == 'info' ? (
-                            <p>All exercises for React day-1</p>
-                        ) : null}
+                        {selectedView == 'info' ? <p>All exercises for React day-1</p> : null}
                         {selectedView == 'props demo' ? (
                             <>
                                 {users.map((user) => {
                                     {
                                     }
-                                    return (
-                                        <Profile
-                                            key={user.id}
-                                            id={user.id}
-                                            name={user.name}
-                                            email={user.email}
-                                            isActive={user.isActive}
-                                            singleLine={true}
-                                        ></Profile>
-                                    );
+                                    return <Profile key={user.id} id={user.id} name={user.name} email={user.email} isActive={user.isActive} singleLine={true}></Profile>;
                                 })}
                             </>
                         ) : null}
@@ -58,11 +48,14 @@ export default function App() {
                                 <EventDemo title={'Events'}></EventDemo>
                             </>
                         ) : null}
-                        {selectedView == 'Uncontrolled Form' ? (
+                        {selectedView == 'Uncontrolled form' ? (
                             <>
-                                <FormUncontrolled
-                                    title={'Forms uncontrolled'}
-                                ></FormUncontrolled>
+                                <FormUncontrolled title={'Forms uncontrolled'}></FormUncontrolled>
+                            </>
+                        ) : null}
+                        {selectedView == 'State demo1' ? (
+                            <>
+                                <StateDemo1 title={'State demo1'}></StateDemo1>
                             </>
                         ) : null}
                     </div>
@@ -87,26 +80,20 @@ const Buttons = ({ onSelected, btnStyle }: ButtonProps) => {
                 Info
             </button>
             {/* Add a new button for each of the exercises you complete */}
-            <button
-                className="btn-w100"
-                onClick={() => onSelected('props demo')}
-            >
+            <button className="btn-w100" onClick={() => onSelected('props demo')}>
                 Props demo1
             </button>
-            <button
-                className="btn-w100"
-                onClick={() => onSelected('List demo')}
-            >
+            <button className="btn-w100" onClick={() => onSelected('List demo')}>
                 List demo
             </button>
             <button className="btn-w100" onClick={() => onSelected('Events')}>
                 Events
             </button>
-            <button
-                className="btn-w100"
-                onClick={() => onSelected('Uncontrolled Form')}
-            >
+            <button className="btn-w100" onClick={() => onSelected('Uncontrolled form')}>
                 Forms uncontrolled
+            </button>
+            <button className="btn-w100" onClick={() => onSelected('State demo1')}>
+                State demo1
             </button>
         </>
     );
