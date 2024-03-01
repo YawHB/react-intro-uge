@@ -6,6 +6,8 @@ import Profile from './components/Profile';
 import { users } from './data/data';
 import ListDemo from './exercises/ListDemo';
 import EventDemo from './exercises/EventDemo';
+import UserForm from './components/UserForm';
+import FormUncontrolled from './exercises/FormUncontrolled';
 
 export default function App() {
     const [selectedView, setSelectedView] = useState('info');
@@ -56,6 +58,13 @@ export default function App() {
                                 <EventDemo title={'Events'}></EventDemo>
                             </>
                         ) : null}
+                        {selectedView == 'Uncontrolled Form' ? (
+                            <>
+                                <FormUncontrolled
+                                    title={'Forms uncontrolled'}
+                                ></FormUncontrolled>
+                            </>
+                        ) : null}
                     </div>
 
                     {/**Add the exercise components you creskal ate for each exercise using the key you used for the matching button  */}
@@ -92,6 +101,12 @@ const Buttons = ({ onSelected, btnStyle }: ButtonProps) => {
             </button>
             <button className="btn-w100" onClick={() => onSelected('Events')}>
                 Events
+            </button>
+            <button
+                className="btn-w100"
+                onClick={() => onSelected('Uncontrolled Form')}
+            >
+                Forms uncontrolled
             </button>
         </>
     );
