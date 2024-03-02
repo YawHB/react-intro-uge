@@ -10,6 +10,10 @@ import UserForm from './components/UserForm';
 import FormUncontrolled from './exercises/FormUncontrolled';
 import StateDemo1 from './exercises/StateDemo1';
 import StateDemo2 from './exercises/StateDemo2';
+import StateDemo3 from './exercises/StateDemo3';
+import UseEffectDemo from './exercises/UseEffect';
+import FetchDemo1 from './exercises/FetchDemo';
+import FetchDemo from './exercises/FetchDemo';
 
 export default function App() {
     const [selectedView, setSelectedView] = useState('info');
@@ -64,6 +68,21 @@ export default function App() {
                                 <StateDemo2 title={'State demo2'}></StateDemo2>
                             </>
                         ) : null}
+                        {selectedView == 'State demo3' ? (
+                            <>
+                                <StateDemo3 title={'State demo3'}></StateDemo3>
+                            </>
+                        ) : null}
+                        {selectedView == 'useEffect demo' ? (
+                            <>
+                                <UseEffectDemo title={'useEffect Demo'}></UseEffectDemo>
+                            </>
+                        ) : null}
+                        {selectedView == 'Fetch demo' ? (
+                            <>
+                                <FetchDemo title={'Fetch Demo'}></FetchDemo>
+                            </>
+                        ) : null}
                     </div>
 
                     {/**Add the exercise components you creskal ate for each exercise using the key you used for the matching button  */}
@@ -103,6 +122,15 @@ const Buttons = ({ onSelected, btnStyle }: ButtonProps) => {
             </button>
             <button className="btn-w100" onClick={() => onSelected('State demo2')}>
                 State demo2
+            </button>
+            <button className="btn-w100" onClick={() => onSelected('State demo3')}>
+                State demo3 (update array)
+            </button>
+            <button className="btn-w100" onClick={() => onSelected('useEffect demo')}>
+                useEffect Demo
+            </button>
+            <button className="btn-w100" onClick={() => onSelected('Fetch demo')}>
+                Fetch Demo
             </button>
         </>
     );
