@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import './App.css';
 import Profile from './components/Profile';
-// import PropsDemo from './exercises/PropsDemo';
-// import ListDemo from './exercises/ListDemo';
 import { users } from './data/data';
 import ListDemo from './exercises/ListDemo';
 import EventDemo from './exercises/EventDemo';
@@ -14,6 +12,7 @@ import StateDemo3 from './exercises/StateDemo3';
 import UseEffectDemo from './exercises/UseEffect';
 import FetchDemo1 from './exercises/FetchDemo';
 import FetchDemo from './exercises/FetchDemo';
+import LiftingState from './exercises/LiftingState';
 
 export default function App() {
     const [selectedView, setSelectedView] = useState('info');
@@ -83,6 +82,11 @@ export default function App() {
                                 <FetchDemo title={'Fetch Demo'}></FetchDemo>
                             </>
                         ) : null}
+                        {selectedView == 'Lifting state' ? (
+                            <>
+                                <LiftingState className="" title={'Lifting State'}></LiftingState>
+                            </>
+                        ) : null}
                     </div>
 
                     {/**Add the exercise components you creskal ate for each exercise using the key you used for the matching button  */}
@@ -130,6 +134,9 @@ const Buttons = ({ onSelected, btnStyle }: ButtonProps) => {
                 useEffect Demo
             </button>
             <button className="btn-w100" onClick={() => onSelected('Fetch demo')}>
+                Fetch Demo
+            </button>
+            <button className="btn-w100" onClick={() => onSelected('Lifting state')}>
                 Fetch Demo
             </button>
         </>
